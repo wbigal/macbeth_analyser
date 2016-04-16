@@ -11,6 +11,12 @@ class SpeakerLineCounter
     @speakers[normalized_key] += total
   end
 
+  def get key
+    normalized_key = normalize_key(key)
+    return nil unless (@speakers.key?(normalized_key))
+    @speakers[normalized_key]
+  end
+
   def sorted_by_lines
     return @speakers if (@speakers.empty?)
     @speakers.sort_by { |key, value| value  }.to_h

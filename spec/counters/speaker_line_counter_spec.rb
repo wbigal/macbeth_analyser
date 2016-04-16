@@ -72,4 +72,18 @@ describe SpeakerLineCounter do
       expect(speaker_line_counter.length).to eq(4)
     end
   end
+
+  context '#get' do
+    let(:speaker) { 'DUNCAN' }
+    let(:total_lines) { 50 }
+
+    it 'empty list' do
+      expect(speaker_line_counter.get(speaker)).to be_nil
+    end
+
+    it 'get item' do
+      speaker_line_counter.add(speaker, total_lines)
+      expect(speaker_line_counter.get(speaker)).to eq(total_lines)
+    end
+  end
 end
