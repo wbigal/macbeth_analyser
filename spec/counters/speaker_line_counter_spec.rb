@@ -34,6 +34,12 @@ describe SpeakerLineCounter do
         speaker_line_counter.add(speaker, total_lines)
       }.to raise_error(InvalidKeyError, 'The key can not be nil or blank.')
     end
+
+    it 'ignore ALL speaker' do
+      speaker = 'ALL'
+      result = speaker_line_counter.add(speaker, total_lines)
+      expect(result).to be_nil
+    end
   end
 
   context '#sorted_by_lines' do

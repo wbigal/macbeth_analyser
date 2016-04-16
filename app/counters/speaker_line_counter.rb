@@ -1,4 +1,6 @@
 class SpeakerLineCounter
+  IGNORED_SPEAKERS = [ 'ALL' ]
+
   attr_reader :speakers
 
   def initialize
@@ -8,6 +10,7 @@ class SpeakerLineCounter
   def add key, total
     return 0 if (total <= 0)
     normalized_key = normalize_key(key)
+    return nil if (ignored_speaker(key))
     @speakers[normalized_key] += total
   end
 
@@ -32,5 +35,9 @@ class SpeakerLineCounter
     def normalize_key(key)
       raise InvalidKeyError.new() if (key.nil? || key.empty?)
       key.upcase
+    end
+
+    def ignored_speaker(speaker)
+      IGNORED_SPEAKERS.include?(speaker)
     end
 end
