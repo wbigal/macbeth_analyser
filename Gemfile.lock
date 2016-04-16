@@ -15,12 +15,14 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    xml-simple (1.1.5)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   rspec
+  xml-simple
 
 BUNDLED WITH
    1.11.2
