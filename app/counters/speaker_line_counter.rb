@@ -16,6 +16,10 @@ class SpeakerLineCounter
     @speakers.sort_by { |key, value| value  }.to_h
   end
 
+  def length
+    @speakers.length
+  end
+
   private
     :speakers
 

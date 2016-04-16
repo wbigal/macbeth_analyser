@@ -57,4 +57,19 @@ describe SpeakerLineCounter do
         })
     end
   end
+
+  context '#length' do
+    it 'empty list' do
+      expect(speaker_line_counter.length).to eq(0)
+    end
+
+    it 'a lot of items' do
+      speaker_line_counter.add('A', 10)
+      speaker_line_counter.add('B', 5)
+      speaker_line_counter.add('C', 3)
+      speaker_line_counter.add('D', 40)
+
+      expect(speaker_line_counter.length).to eq(4)
+    end
+  end
 end
