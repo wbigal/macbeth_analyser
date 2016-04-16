@@ -22,7 +22,7 @@ class SpeakerLineCounter
 
   def sorted_by_lines
     return @speakers if (@speakers.empty?)
-    @speakers.sort_by { |key, value| value  }.to_h
+    @speakers.sort_by { |key, value| value * -1 }.to_h
   end
 
   def length

@@ -55,12 +55,7 @@ describe SpeakerLineCounter do
       speaker_line_counter.add('D', 40)
 
       result = speaker_line_counter.sorted_by_lines
-      expect(result).to eq({
-        'D' => 40,
-        'A' => 10,
-        'B' => 5,
-        'C' => 3
-        })
+      expect(result.to_s).to eq('{"D"=>40, "A"=>10, "B"=>5, "C"=>3}')
     end
   end
 
