@@ -11,6 +11,11 @@ class SpeakerLineCounter
     @speakers[normalized_key] += total
   end
 
+  def sorted_by_lines
+    return @speakers if (@speakers.empty?)
+    @speakers.sort_by { |key, value| value  }.to_h
+  end
+
   private
     :speakers
 
