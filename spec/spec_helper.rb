@@ -8,6 +8,10 @@ RSpec.configure do |config|
     stub_request(:get, "http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml").
            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => File.new('./spec/fixtures/macbeth.xml').read, :headers => {})
+
+    stub_request(:get, "http://www.ibiblio.org/not_found").
+           with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
+           to_return(:status => 404, :body => "", :headers => {})
   end
 
   config.expect_with :rspec do |expectations|
